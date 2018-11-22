@@ -111,7 +111,42 @@ GROUP BY Customer,OrderDate
 
 
 
-#### 8.SQL常见面试题：
+
+
+#### **8.Having**
+
+在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与 Aggregate 函数一起使用。
+
+HAVING子句已添加到SQL中，因为WHERE关键字不能用于聚合函数。
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+```
+
+```sql
+以下SQL语句列出员工“Davolio”或“Fuller”是否已注册超过25个订单：
+
+SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+WHERE LastName = 'Davolio' OR LastName = 'Fuller'
+GROUP BY LastName
+HAVING COUNT(Orders.OrderID) > 25;
+
+```
+
+
+
+
+
+
+
+#### 9.SQL常见面试题：
 
 一：
 
